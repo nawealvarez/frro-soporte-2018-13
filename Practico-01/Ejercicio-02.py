@@ -7,13 +7,14 @@ def  max_de_tres(a, b, c):
         return c
 
 
-a = input("Primero\n")
-b = input("Segundo\n")
-c = input("Tercero\n")
+# a = input("Primero\n")
+# b = input("Segundo\n")
+# c = input("Tercero\n")
 
-a = int(a)
-b = int(b)
-c = int(c)
+# a = int(a)
+# b = int(b)
+# c = int(c)
 
-print("La suma es:"+" " + str(a+b+c))
-print("El mayor es:"+" " + str( max_de_tres(a, b, c)))
+# print("La suma es:"+" " + str(a+b+c))
+# print("El mayor es:"+" " + str( max_de_tres(a, b, c)))
+assert max_de_tres(1, 2, 3) == 3
