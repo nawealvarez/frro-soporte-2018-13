@@ -5,14 +5,16 @@ def max(a, b):
         return b
 
 
-a = input("Primero\n")
-b = input("Segundo\n")
+# a = input("Primero\n")
+# b = input("Segundo\n")
 
-a = int(a)
-b = int(b)
+# a = int(a)
+# b = int(b)
 
-print("La suma es:" + " " + str(a + b))
-print("El mayor es:" + " " + str(max(a, b)))
+# print("La suma es:" + " " + str(a + b))
+# print("El mayor es:" + " " + str(max(a, b)))
 
+
+assert (max(1, 2) == 2)
 
 

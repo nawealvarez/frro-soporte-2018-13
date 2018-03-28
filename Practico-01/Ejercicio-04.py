@@ -6,7 +6,8 @@ def esVocOCon(l):
         return False
 
 
-l = input("Ingrese una letra:\n")
-print("Si devuelve True es vocal, sino devuelve False: " + " "+ str(esVocOCon(l)))
+# l = input("Ingrese una letra:\n")
+# print("Si devuelve True es vocal, sino devuelve False: " + " "+ str(esVocOCon(l)))
 
+assert esVocOCon("a") == True
 
