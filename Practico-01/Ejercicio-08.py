@@ -12,9 +12,9 @@ def superposicion(s, n):
         return False
 
 
-s = input("Ingrese letras separados por espacios:\n ")
-s = s.split()
-n = input("Ingrese letras separados por espacios:\n ")
-n = n.split()
+# s = input("Ingrese letras separados por espacios:\n ")
+# s = s.split()
+# n = input("Ingrese letras separados por espacios:\n ")
+# n = n.split()
 
-print(str(superposicion(s, n)))
+assert superposicion("a b c", "j g a") == True
