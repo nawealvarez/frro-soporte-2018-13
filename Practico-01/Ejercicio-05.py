@@ -5,7 +5,9 @@ def multip(n):
     print(str(total))
 
 
-n = input("Ingrese numeros separados por espacios:\n ")
-n = n.split()
+# n = input("Ingrese numeros separados por espacios:\n ")
+# n = n.split()
+#
+# print("El resultado es:" + " " + str(multip(n)))
 
-print("El resultado es:" + " " + str(multip(n)))
+assert multip("3 2 4") == 24

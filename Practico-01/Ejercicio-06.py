@@ -5,8 +5,10 @@ def inversa(s):
     return(a)
 
 
-s = input("Ingrese una oracion: \n")
+#s = input("Ingrese una oracion: \n")
 
-s = inversa(s)
+#s = inversa(s)
 
-print("La oracion al reves es:" + " " + s)
+#print("La oracion al reves es:" + " " + s)
+
+assert inversa("hola") == "aloh"
