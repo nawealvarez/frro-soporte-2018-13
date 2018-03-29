@@ -5,10 +5,10 @@ def mas_larga(n):
      if palabra_mayor <= len(palabra):
          palabra_mostrar = palabra
          palabra_mayor = len(palabra)
- return palabra_mostrar
+ print(palabra_mostrar)
 
 
 # n = input("Ingrese palabras separados por espacios:\n ")
 # n = n.split()
 # mas_larga(n)
-assert str(mas_larga("a hola vpn") == "hola")
+assert mas_larga("a hola vpn") == "hola"
