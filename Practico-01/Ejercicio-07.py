@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def inversa(s):
     a = ""
     for x in range(1, (len(s) + 1)):
@@ -16,3 +17,15 @@ s = input("Ingrese una frase: \n")
 chequearInversa(s.lower())
 
 assert chequearInversa("neuquen")
+=======
+def es_palindromo(original):
+    cadena = original[::-1]
+    if cadena == original:
+        return True
+    else:
+        return False
+
+
+# print(str(es_palindromo('radar')))
+assert es_palindromo('radar') == True
+>>>>>>> 751396437412661de25b6bf82c4afdc1a98ae2f2
