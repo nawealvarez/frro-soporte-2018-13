@@ -24,10 +24,6 @@ class Persona:
         print("DNI: " + str(self.dni))
 
     def generar_dni(self):
-        # dni = []
-        # for i in range(0, 9):
-        #     n = random.randrange(10)
-        #     dni.append(n)
         dni = random.randrange(100000000)
         self.dni = dni
 
@@ -36,11 +32,9 @@ class Persona:
 
 
 persona = Persona()
-# persona.print_data()
-if persona.es_mayor_edad():
-    print("Es mayor")
-else:
-    print("Es menor")
+persona.print_data()
+assert persona.es_mayor_edad() == False
+
 
 
 
