@@ -1,5 +1,5 @@
 def generar_n_caracteres(n, caracter):
-     print(n * caracter)
+     return n * caracter
 
 
 # generar_n_caracteres(5, "x")
