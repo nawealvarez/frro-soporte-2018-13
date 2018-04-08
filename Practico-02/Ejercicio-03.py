@@ -3,7 +3,7 @@ import random
 
 class Persona:
     nombre = "Lautaro"
-    edad = 16
+    edad = 17
     sexo = 'H'
     peso = 345
     altura = 1.90
