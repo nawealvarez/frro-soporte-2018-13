@@ -5,7 +5,7 @@ class Persona:
     nombre = "Lautaro"
     fecha_nac = date(1995, 5, 15)
     sexo = 'H'
-    peso = 345
+    peso = 75
     altura = 1.90
     dni = 39306134
 
@@ -18,7 +18,7 @@ class Estudiante(Persona):
 
     def avance(self):
         porcentaje = 0
-        porcentaje = (float("%.2f" %((self.materias_aprobadas * 100) / self.materias_carrera)))
+        porcentaje = (float("%.2f" % ((self.materias_aprobadas * 100) / self.materias_carrera)))
         return porcentaje
 
     def edad_ingreso(self):
@@ -29,5 +29,5 @@ class Estudiante(Persona):
 
 x = Estudiante()
 # print("La fecha de nacimiento es:" + " " + str(x.fecha_nac) + ", ingresó con" + " " + str(x.edad_ingreso()) + " años" +
-#    " tiene aprobado el " + str(x.avance()) + "% de la carrera")
+#    " tiene aprobado el " + str(x.avance()) + " % de la carrera")
 assert x.avance() == 44.44 and x.edad_ingreso() == 19
