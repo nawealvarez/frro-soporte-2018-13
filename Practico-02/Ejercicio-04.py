@@ -17,12 +17,10 @@ class Estudiante(Persona):
     materias_aprobadas = 20
 
     def avance(self):
-        porcentaje = 0
         porcentaje = (float("%.2f" % ((self.materias_aprobadas * 100) / self.materias_carrera)))
         return porcentaje
 
     def edad_ingreso(self):
-        edad_ingreso = 0
         edad_ingreso = self.ingreso.year - self.fecha_nac.year
         return edad_ingreso
 
