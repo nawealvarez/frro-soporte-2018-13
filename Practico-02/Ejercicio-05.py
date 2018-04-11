@@ -59,5 +59,6 @@ c = cantidad_en_carreras(estudiantes)
 
 #for k,v in c.items():
 #    print(k, ":", v)
+#
 
 assert list(c.keys()) == ["Ingenieria en Sitemas de Informacion", "Ingenieria Quimica", "Ingenieria Electrica"] and list(c.values()) == [2,2,1]
