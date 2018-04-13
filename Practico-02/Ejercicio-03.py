@@ -2,7 +2,7 @@ import random
 
 
 class Persona:
-    nombre = "Lautaro"
+    nombre = "Juan"
     edad = 17
     sexo = 'H'
     peso = 345
