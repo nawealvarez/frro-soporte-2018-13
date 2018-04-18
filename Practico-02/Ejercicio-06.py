@@ -15,7 +15,7 @@ class Persona:
         return edad
 
 
-fecha = date(1995, 11, 17)
+fecha = date(1995, 11, 18)
 pers = Persona(fecha)
 
 # print("La edad de la persona es: " + str(pers.edad()) + " años")
