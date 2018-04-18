@@ -1,18 +1,24 @@
-from datetime import datetime
+from datetime import date
 
-class Persona():
+
+class Persona:
     def __init__(self, nacimiento):
         self.nacimiento = nacimiento
 
     def edad(self):
-        edad = (datetime.now() - self.nacimiento).days
-        years = (int(edad/365))
-        return years
+        if date.today().month > self.nacimiento.month:
+            edad = date.today().year - self.nacimiento.year
+        elif date.today().month == self.nacimiento.month and date.today().day >= self.nacimiento.day:
+            edad = date.today().year - self.nacimiento.year
+        else:
+            edad = date.today().year - self.nacimiento.year - 1
+        return edad
 
-date = datetime(2009, 1, 6, 15, 8, 24, 78915)
-pers = Persona(date)
+
+fecha = date(1995, 11, 17)
+pers = Persona(fecha)
 
 # print("La edad de la persona es: " + str(pers.edad()) + " años")
 
-assert pers.edad() == 9
+assert pers.edad() == 22
 
