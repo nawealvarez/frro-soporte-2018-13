@@ -1,11 +1,9 @@
 import pymysql
+from Connection import Connect
 
+c = Connect()
+conn = c.openConnection()
 
-conn = pymysql.connect(host='localhost',
-                       port=3306,
-                       user='root',
-                       password='MySQL',
-                       db='soporte_tp3')
 cur = conn.cursor()
 
 caux = "SELECT * FROM persona WHERE dni = '1111'"
@@ -23,4 +21,4 @@ for i in a:
 
 
 cur.close()
-conn.close()
+c.closeConnection()

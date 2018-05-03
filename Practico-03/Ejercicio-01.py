@@ -1,10 +1,8 @@
 import pymysql
+from Connection import Connect
 
-conn = pymysql.connect(host='localhost',
-                       port=3306,
-                       user='root',
-                       password='MySQL',
-                       db='soporte_tp3')
+c = Connect()
+conn = c.openConnection()
 
 cur = conn.cursor()
 caux = "SELECT * FROM persona"
@@ -21,4 +19,4 @@ for i in a:
 
 
 cur.close()
-conn.close()
+c.closeConnection()

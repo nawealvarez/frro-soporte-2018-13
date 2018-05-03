@@ -1,11 +1,9 @@
 import pymysql
+from Connection import Connect
 
+c = Connect()
+conn = c.openConnection()
 
-conn = pymysql.connect(host='localhost',
-                       port=3306,
-                       user='root',
-                       password='MySQL',
-                       db='soporte_tp3')
 cur = conn.cursor()
 caux = "UPDATE persona SET nombre='sergio' WHERE idPersona=3;"
 
@@ -27,4 +25,4 @@ for i in a:
     print(i)
 
 cur.close()
-conn.close()
+c.closeConnection()
