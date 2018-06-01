@@ -1,7 +1,7 @@
 from Connection import Connect
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from sqlalchemy import Column, Integer, String, Date, Table, ForeignKey, create_engine
+from sqlalchemy import Column, Integer, String, Date, ForeignKey, create_engine
 
 Base = declarative_base()
 
@@ -17,8 +17,8 @@ class Persona(Base):
 
 
 class PesoCorporal(Base):
-    __tablename__ = "personaCorporal"
-    idPersona = Column(Integer, ForeignKey('persona.idPersona'))
+    __tablename__ = "personaPeso"
+    idPersona = Column(Integer, ForeignKey('persona.idPersona'), primary_key=True)
     fecha = Column(Date, primary_key=True)
     peso = Column(Integer, nullable=True)
     persona = relationship(Persona)
@@ -28,4 +28,3 @@ engine = create_engine("mysql+pymysql://root:MySQL@localhost/soporte_tp3")
 Base.metadata.create_all(engine)
 
 
-# TIRA ERROR PERO CREA LA TABLA, NO SE QUE ONDA
