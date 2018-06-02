@@ -53,21 +53,20 @@ var1.set("Primer Operando")
 etiq1 = Label(calc, textvariable=var1, height=2, foreground='blue')
 etiq1.place(x=10, y=10)
 
-
+# Creacion de otra caja de texto para el primer numero
 numero1 = StringVar()
-caja1 = Entry(calc, bd=4, textvariable=numero1)
+caja1 = Entry(calc, bd=3, textvariable=numero1)
 caja1.place(x=10, y=40)
 
 # Creacion de otra etiqueta
 var2 = StringVar()
 var2.set("Segundo Operando")
 etiq2 = Label(calc, textvariable=var2, height=1, foreground='blue')
-
 etiq2.place(x=10, y=70)
 
 # Creacion de otra caja de texto para el segundo numero
 numero2 = StringVar()
-caja2 = Entry(calc, bd=4, textvariable=numero2)
+caja2 = Entry(calc, bd=3, textvariable=numero2)
 caja2.place(x=10, y=100)
 
 # Boton para la suma
@@ -80,11 +79,11 @@ boton2.place(x=187, y=70)
 
 # Boton para multiplicacion
 boton3 = Button(calc, text="x", command=Multiplicacion, width=5)
-boton3.place(x=237, y=70)
+boton3.place(x=234, y=70)
 
 # Boton para la division
 boton4 = Button(calc, text="/", command=Division, width=5)
-boton4.place(x=287, y=70)
+boton4.place(x=281, y=70)
 
 # Cargar Calculadora
 calc.mainloop()
