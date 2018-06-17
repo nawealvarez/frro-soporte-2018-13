@@ -2,7 +2,6 @@ import pymysql
 
 
 class Connect:
-
     conn = pymysql.connect(host='localhost',
                        port=3306,
                        user='root',
