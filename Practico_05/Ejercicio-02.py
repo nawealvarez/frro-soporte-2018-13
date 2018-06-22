@@ -3,7 +3,7 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from Pract import Base, Socio
+from  import Base, Socio
 
 
 class DatosSocio(object):
