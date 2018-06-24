@@ -2,7 +2,7 @@
 
 import unittest
 
-from practico05.ejercicio_01 import Socio
+from Practico_05.ejercicio_01 import Socio
 from Practico_06.capa_negocio import NegocioSocio, LongitudInvalida, DniRepetido, MaximoAlcanzado
 
 

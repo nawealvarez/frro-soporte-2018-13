@@ -1,7 +1,7 @@
 # Implementar los metodos de la capa de negocio de socios.
 
-from practico05.ejercicio_01 import Socio
-from practico05.Ejercicio_02 import DatosSocio
+from Practico_05.ejercicio_01 import Socio
+from Practico_05.Ejercicio_02 import DatosSocio
 
 
 class DniRepetido(Exception):
