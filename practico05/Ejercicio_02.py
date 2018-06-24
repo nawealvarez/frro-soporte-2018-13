@@ -3,17 +3,18 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from practico05.ejercicio_01 import Base, Socio
+from practico05.Ejercicio_01 import Base, Socio
 
 
 class DatosSocio(object):
 
     def __init__(self):
-        engine = create_engine('mysql+pymysql://root@localhost/trabajopractico5')
+        engine = create_engine('sqlite:///socios.db')
         Base.metadata.bind = engine
         db_session = sessionmaker()
         db_session.bind = engine
-        self.session = db_session()
+        self.session = db_session(autoflush=False)
+        Base.metadata.create_all(engine)
 
     def buscar(self, id_socio):
         """
@@ -21,8 +22,7 @@ class DatosSocio(object):
         Devuelve None si no encuentra nada.
         :rtype: Socio
         """
-        p = self.session.query(Socio).filter(Socio.id == id_socio).first()
-        return p
+        return self.session.query(Socio).filter(Socio.id == id_socio).first()
 
     def buscar_dni(self, dni_socio):
         """
@@ -30,17 +30,14 @@ class DatosSocio(object):
         Devuelve None si no encuentra nada.
         :rtype: Socio
         """
-
-        p = self.session.query(Socio).filter(Socio.dni == dni_socio).first()
-        return p
+        return self.session.query(Socio).filter(Socio.dni == dni_socio).first()
 
     def todos(self):
         """
         Devuelve listado de todos los socios en la base de datos.
         :rtype: list
         """
-        socios = self.session.query(Socio).all()
-        return socios
+        return self.session.query(Socio).all()
 
     def borrar_todos(self):
         """
@@ -48,14 +45,12 @@ class DatosSocio(object):
         Devuelve True si el borrado fue exitoso.
         :rtype: bool
         """
-        try:
-            socios = self.todos()
-            for socio in socios:
-                self.session.delete(socio)
-            self.session.commit()
-        except Exception:
-            return False
-        return True
+        todos = self.todos()
+        for s in todos:
+            self.baja(s.id)
+        if len(todos):
+            return True
+        return False
 
     def alta(self, socio):
         """
@@ -73,14 +68,10 @@ class DatosSocio(object):
         Devuelve True si el borrado fue exitoso.
         :rtype: bool
         """
-        socio = self.buscar(id_socio)
-        try:
-            self.session.delete(socio)
+        if self.session.query(Socio).filter(Socio.id == id_socio).delete():
             self.session.commit()
-        except Exception:
-            return False
-
-        return True
+            return True
+        return False
 
     def modificacion(self, socio):
         """
@@ -89,39 +80,41 @@ class DatosSocio(object):
         :type socio: Socio
         :rtype: Socio
         """
-        socio_viejo=self.buscar(socio.id)
-        socio_viejo=socio
         self.session.commit()
-        return False
+        return socio
 
 
 def pruebas():
     # alta
     datos = DatosSocio()
-    socio = datos.alta(Socio(dni=12345678, nombre='Juan', apellido='Perez'))
+    socio = datos.alta(Socio(dni=12345678, nombre='Lionel', apellido='Messi'))
     assert socio.id > 0
 
     # baja
-    assert datos.baja(socio.id) == True
+    assert datos.baja(socio.id) is True
 
     # buscar
-    socio_2 = datos.alta(Socio(dni=12345679, nombre='Carlos', apellido='Perez'))
+    socio_2 = datos.alta(Socio(dni=12345679, nombre='Carlos', apellido='Tevez'))
     assert datos.buscar(socio_2.id) == socio_2
 
+    # buscar dni
+    socio_2 = datos.alta(Socio(dni=12345681, nombre='Carlos', apellido='Tevez'))
+    assert datos.buscar_dni(socio_2.dni) == socio_2
+
     # modificacion
-    socio_3 = datos.alta(Socio(dni=12345680, nombre='Susana', apellido='Gimenez'))
-    socio_3.nombre = 'Moria'
-    socio_3.apellido = 'Casan'
+    socio_3 = datos.alta(Socio(dni=12345680, nombre='China', apellido='Suarez'))
+    socio_3.nombre = 'Sol'
+    socio_3.apellido = 'Perez'
     socio_3.dni = 13264587
     datos.modificacion(socio_3)
     socio_3_modificado = datos.buscar(socio_3.id)
     assert socio_3_modificado.id == socio_3.id
-    assert socio_3_modificado.nombre == 'Moria'
-    assert socio_3_modificado.apellido == 'Casan'
+    assert socio_3_modificado.nombre == 'Sol'
+    assert socio_3_modificado.apellido == 'Perez'
     assert socio_3_modificado.dni == 13264587
 
     # todos
-    assert len(datos.todos()) == 2
+    assert len(datos.todos()) == 3
 
     # borrar todos
     datos.borrar_todos()
@@ -130,4 +123,3 @@ def pruebas():
 
 if __name__ == '__main__':
     pruebas()
-
