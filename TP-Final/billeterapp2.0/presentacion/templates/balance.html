@@ -1,0 +1,6 @@
+{%block balance%}
+    <div class="col-md-4">
+        <h1 class="text-center">Total de la cuenta:</h1>
+        <p {%if balance > 0%} class="text-success balance" {%else%} class="text-danger balance" {%endif%}>$ {{balance}}</p>
+    </div>  
+{%endblock%}

@@ -1,0 +1,18 @@
+{%macro render_field(field)%}
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4 offset-md-3">
+                {{field.label}}
+                {{field(**kwargs)|safe}}              
+            </div>
+            <div class="col-md-4 offset-md-6">
+                <ul class="error">
+                    {%for error in field.errors%}
+                        <li class="text-danger">{{error}}</li>
+                    {%endfor%}
+                </ul>
+            </div>
+        </div>
+    </div>
+{%endmacro%}
+

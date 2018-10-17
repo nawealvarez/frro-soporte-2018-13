@@ -1,0 +1,37 @@
+{%block list%}
+    <section class="col-md-6">
+        <caption>ULTIMOS MOVIMIENTOS</caption>
+        {%if moves%}
+            <table class="table table-hover table-sm tabla">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Descricion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for move in moves%}
+                    <tr {%if move.tipo == "ingreso"%} class="success"
+                            {%else%} class="danger"
+                        {%endif%}>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{move.fecha.strftime('%d-%m-%Y')}}</td>
+                        <td>$ {{move.valor}}</td>
+                        <td>{% for cat in move.categoria%}
+                                {{cat}}
+                            {%endfor%}
+                        </td>
+                        <td>{{move.descripcion}}</td>
+                        <td><a href="{{url_for('edit', registro_id=move._id)}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        {%else%}
+            --No hay movimientos--
+        {%endif%}
+    </section>
+{%endblock%}

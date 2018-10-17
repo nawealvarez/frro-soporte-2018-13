@@ -1,0 +1,91 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+h1{
+    color:black;
+}
+
+ ul {
+    list-style-type: none;
+    margin:0;
+    padding:10px 0;
+  }
+  ul li {
+    float: left;
+    list-style-type: none;
+    margin: 0 6px;
+  }
+  ul a {
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    text-decoration: none;
+    color: black;
+    font-weight: italic;
+    text-transform: uppercase;
+    padding: 0px 4px;
+  }
+
+  .brand-title{
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: block;
+      font-weight: italic;
+      /*color: #4fa7a0;*/
+      color: white;
+      font-size: 30px;
+      float: left;
+      height: 0;
+      margin: 20px;
+  }
+
+  .log-btn {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    height: auto;
+    width: auto;
+}
+
+  .logo{
+    margin: auto;
+  }
+
+  .main-bar{
+    height: 75px;
+    background:black;
+  }
+
+  .flashes ul li{
+    color: #4fa7a0;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    clear: both;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  footer{
+    text-align: center;
+    width: 100%;
+  }
+
+  .error{
+    margin-top: 10px;
+  }
+
+  button[type=submit]{
+    margin-top: 10px;
+  }
+
+  .balance{
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .tabla{
+    max-height: 100px;
+    overflow-y: scroll;
+  }

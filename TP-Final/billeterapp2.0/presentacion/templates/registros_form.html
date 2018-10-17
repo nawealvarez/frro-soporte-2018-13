@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+{%from "form_macros.html" import render_field%}
+
+{%block title%}
+A Ver Si Ahorra -- {{title}}
+{% endblock %}
+
+{%block content%}
+    <section>
+        <div>
+            <h1 class="justify-content-center">{{title}}</h1>
+            <form action="" method="post" class="form-group">
+                {{form.hidden_tag()}}
+                <table>
+                    {{render_field(form.categoria, list="cat_datalist", autocomplete="off", autofocus="autofocus", placeholder="Seleccione o ingrese una nueva categoria", size=50, class="form-control")}}
+                    {{render_field(form.valor, autocomplete="off", pattern="[0-9]*.?[0-9]*", title="Ingrese sólo números", placeholder="Monto del ingreso a cargar", size=50, class="form-control")}}
+                    {{render_field(form.descripcion, placeholder="Información adicional del ingreso", size=50, class="form-control")}}
+                    <button type="submit" class="btn btn-primary">Agregar {{type}}</button>
+                </table>
+            </form>
+        </div>
+
+        <datalist id="cat_datalist">
+            {% for c in datalist %}
+            <option value={{c}}>
+            {% endfor %}
+        </datalist>
+    </section>
+{%endblock%}
